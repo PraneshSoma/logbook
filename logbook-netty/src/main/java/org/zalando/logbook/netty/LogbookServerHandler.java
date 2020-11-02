@@ -1,6 +1,7 @@
 package org.zalando.logbook.netty;
 
 import io.netty.channel.ChannelDuplexHandler;
+import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelPromise;
 import io.netty.handler.codec.http.HttpContent;
@@ -24,6 +25,7 @@ import static org.zalando.logbook.netty.Conditionals.runIf;
 @API(status = EXPERIMENTAL)
 @NotThreadSafe
 @RequiredArgsConstructor
+@ChannelHandler.Sharable
 public final class LogbookServerHandler extends ChannelDuplexHandler {
 
     private final Sequence sequence = new Sequence(2);
