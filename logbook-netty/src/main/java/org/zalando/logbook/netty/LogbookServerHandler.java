@@ -42,7 +42,6 @@ public final class LogbookServerHandler extends ChannelDuplexHandler {
 
         sequence = new Sequence(2);
 
-
         runIf(message, HttpRequest.class, httpRequest -> {
             this.request = new Request(context, REMOTE, httpRequest);
             this.requestStage = logbook.process(request);
